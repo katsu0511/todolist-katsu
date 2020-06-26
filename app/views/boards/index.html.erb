@@ -1,0 +1,24 @@
+<div class="boards-wrapper">
+  <div class="box">
+    <h1>All Boards</h1>
+    <div class="boards">
+      <% @boards.each do |board| %>
+        <div class="card">
+          <h2 class="card_title"><%= board.title %></h2>
+          <p class="card_content"><%= board.content %></p>
+          <%= image_tag 'icon2.png', class: 'card_icon' %>
+          <div class="card_drop">
+            <%= image_tag 'drop.svg', class: 'card_drop_icon' %>
+            <div class="card_drop_content">
+              <a href="#">Edit</a>
+              <a href="#">Delete</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="new_board">
+      <p>+ Add new board</p>
+    </div>
+  </div>
+</div>
