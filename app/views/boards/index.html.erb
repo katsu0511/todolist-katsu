@@ -1,1 +1,5 @@
 <h1>All Boards</h1>
+<% @boards.each do |board| %>
+  <h2><%= board.title %></h2>
+  <p><%= board.content %></p>
+<% end %>
