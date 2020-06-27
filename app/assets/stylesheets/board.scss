@@ -1,6 +1,7 @@
 @import 'variables';
 
-.card {
+.board {
+    display: block;
     position: relative;
     width: 100%;
     height: 161px;
@@ -52,7 +53,7 @@
             height: 66px;
             border-radius: 10px;
 
-            a {
+            &_btn {
                 display: block;
                 background: white;
                 font-size: 12px;
