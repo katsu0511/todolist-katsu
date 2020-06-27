@@ -1,1 +1,22 @@
-<h1>New</h1>
+<div class="box">
+  <h2>New Board</h2>
+
+  <%= form_tag(url: "/board/create") do %>
+
+    <div class="field">
+      <div class="title">Name</div>
+      <input type="text" name="title">
+    </div>
+
+    <div class="field">
+      <div class="content">Description</div>
+      <textarea name="content"></textarea>
+    </div>
+
+    <div class="actions">
+      <input type="submit" value="Submit">
+    </div>
+    
+  <% end %>
+
+</div>
