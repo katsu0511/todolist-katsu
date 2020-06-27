@@ -14,8 +14,8 @@ class BoardsController < ApplicationController
       flash[:notice] = 'Successfully saved'
       redirect_to('/')
     else
-      flash.now[:error] = 'failed to save'
-      render :new
+      flash[:notice] = 'failed to save'
+      render("boards/new")
     end
   end
 
