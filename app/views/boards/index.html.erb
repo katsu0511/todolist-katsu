@@ -10,7 +10,7 @@
           <%= image_tag 'drop.svg', class: 'board_drop_icon' %>
           <div class="board_drop_content">
             <%= link_to 'Edit', edit_board_path(board), class: 'board_drop_content_btn' %>
-            <a href="#" class="board_drop_content_btn">Delete</a>
+            <%= link_to 'Delete', board_path(board), class: 'board_drop_content_btn', method: :delete %>
           </div>
         </div>
       </div>
