@@ -9,12 +9,12 @@
 
     <div class="field">
       <div class="title">Name</div>
-      <input type="text" name="title">
+      <input type="text" name="title" value="<%= @board.title %>">
     </div>
 
     <div class="field">
       <div class="content">Description</div>
-      <textarea name="content"></textarea>
+      <textarea name="content"><%= @board.content %></textarea>
     </div>
 
     <div class="actions">
