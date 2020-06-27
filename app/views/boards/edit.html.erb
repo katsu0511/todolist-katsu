@@ -1,0 +1,22 @@
+<div class="box">
+  <h2>Edit Board</h2>
+
+  <%= form_tag(board_path(@board), method: :put) do %>
+
+    <div class="field">
+      <div class="title">Name</div>
+      <input type="text" name="title">
+    </div>
+
+    <div class="field">
+      <div class="content">Description</div>
+      <textarea name="content"></textarea>
+    </div>
+
+    <div class="actions">
+      <input type="submit" value="Submit">
+    </div>
+    
+  <% end %>
+
+</div>
