@@ -1,6 +1,10 @@
 <div class="box">
   <h2>New Board</h2>
 
+  <% @board.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+
   <%= form_tag(boards_path) do %>
 
     <div class="field">
