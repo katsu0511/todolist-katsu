@@ -27,8 +27,13 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @board.title = params[:title]
     @board.content = params[:content]
-    @board.save
-    redirect_to('/')
+    if @board.save
+      flash[:notice] = 'Successfully saved'
+      redirect_to('/')
+    else
+      flash[:notice] = 'failed to save'
+      render("boards/edit")
+    end
   end
 
   def destroy
