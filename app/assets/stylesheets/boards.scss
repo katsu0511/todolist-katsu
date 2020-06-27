@@ -13,19 +13,21 @@
 
 
     .new_board {
+        display: block;
         width: 100%;
         height: 160px;
         background: white;
+        color: $base;
+        font-size: 18px;
         border: 1px dashed rgba(0, 0, 0, 0.2);
+        text-align: center;
+        line-height: 160px;
         border-radius: 10px;
         margin-bottom: 31px;
+        transition: all 0.3s;
 
-        p {
-            font-size: 18px;
-            color: $base;
-            line-height: 160px;
-            text-align: center;
+        &:hover {
+            background: $back;
         }
-
     }
 }
