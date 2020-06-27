@@ -14,8 +14,20 @@ class BoardsController < ApplicationController
       flash[:notice] = 'Successfully saved'
       redirect_to('/')
     else
-      render('boards/new')
+      flash.now[:error] = 'failed to save'
+      render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
   end
 
 end

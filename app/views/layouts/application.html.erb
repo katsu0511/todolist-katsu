@@ -18,11 +18,11 @@
         <div class="header">
           <h1 class="header_title">Boards</h1>
           <% if user_signed_in? %>
-            <div class="card_drop header_drop">
+            <div class="board_drop header_drop">
               <%= image_tag 'icon1.png', class: 'header_drop_icon' %>
-              <div class="card_drop_content header_drop_content">
-                <a href="#">Profile</a>
-                <%= link_to 'Sign out', destroy_user_session_path, data: {method: 'delete'} %>
+              <div class="board_drop_content header_drop_content">
+                <a href="#" class="board_drop_content_btn">Profile</a>
+                <%= link_to 'Sign out', destroy_user_session_path, data: {method: 'delete'}, class: 'board_drop_content_btn' %>
               </div>
             </div>
           <% else %>
