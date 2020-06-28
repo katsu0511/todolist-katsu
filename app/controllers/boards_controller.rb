@@ -28,10 +28,10 @@ class BoardsController < ApplicationController
     @board.title = params[:title]
     @board.content = params[:content]
     if @board.save
-      flash[:notice] = 'Successfully saved'
+      flash[:notice] = 'Successfully updated'
       redirect_to('/')
     else
-      flash[:notice] = 'failed to save'
+      flash[:notice] = 'failed to update'
       render("boards/edit")
     end
   end
