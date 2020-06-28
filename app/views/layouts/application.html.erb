@@ -16,11 +16,16 @@
     <header>
       <div class="box">
         <div class="header">
-          <% if current_page?(root_path) %>
-            <h1 class="header_title">Boards</h1>
-          <% else %>
-            <%= link_to 'Boards', '/', class: 'header_title header_a' %>
-          <% end %>
+          <div class="header_title">
+            <% if current_page?(root_path) %>
+              <h1 class="header_title_h">Boards</h1>
+            <% else %>
+              <%= link_to :back, class: 'header_title_img' do %>
+                <%= image_tag 'back.svg' %>
+              <% end %>
+              <%= link_to 'Boards', '/', class: 'header_title_h header_title_a' %>
+            <% end %>
+          </div>
           <% if user_signed_in? %>
             <div class="board_drop header_drop">
               <%= image_tag 'icon1.png', class: 'header_drop_icon' %>
