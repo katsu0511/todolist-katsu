@@ -5,11 +5,11 @@ class BoardsController < ApplicationController
   end
 
   def new
-    @board = Board.new
+    @board = current_user.boards.build
   end
 
   def create
-    @board = Board.new(title: params[:title], content: params[:content])
+    @board = current_user.boards.build(title: params[:title], content: params[:content])
     if @board.save
       flash[:notice] = 'Successfully saved'
       redirect_to('/')
