@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  before_action :forbid_unuser, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @boards = Board.all
@@ -40,6 +41,13 @@ class BoardsController < ApplicationController
     @board = current_user.boards.find(params[:id])
     @board.destroy!
     redirect_to root_path, notice: 'Successfully deleted'
+  end
+
+  private
+  def forbid_unuser
+    if !user_signed_in?
+      redirect_to root_path, notice: 'You don\'t have right'
+    end
   end
 
 end
