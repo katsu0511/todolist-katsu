@@ -47,7 +47,7 @@ class BoardsController < ApplicationController
   private
   def forbid_unuser
     if !user_signed_in?
-      redirect_to root_path, notice: 'You need to sign in'
+      redirect_to new_user_session_path, notice: 'You need to sign in'
     end
   end
 
