@@ -24,9 +24,20 @@
         margin-bottom: 29px;
     }
 
-    &_icon {
-        width: 30px;
-        height: 30px;
+    &_display {
+        display: flex;
+
+        &_icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        &_name {
+            font-size: 14px;
+            font-weight: normal;
+            color: $base;
+            margin: 6px 10px;
+        }
     }
 
     &_drop {
