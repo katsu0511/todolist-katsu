@@ -37,9 +37,9 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:id])
-    @board.destroy
-    redirect_to('/')
+    @board = current_user.boards.find(params[:id])
+    @board.destroy!
+    redirect_to root_path, notice: 'Successfully deleted'
   end
 
 end
