@@ -16,7 +16,11 @@
     <header>
       <div class="box">
         <div class="header">
-          <h1 class="header_title">Boards</h1>
+          <% if current_page?(root_path) %>
+            <h1 class="header_title">Boards</h1>
+          <% else %>
+            <%= link_to 'Boards', '/', class: 'header_title header_a' %>
+          <% end %>
           <% if user_signed_in? %>
             <div class="board_drop header_drop">
               <%= image_tag 'icon1.png', class: 'header_drop_icon' %>
