@@ -6,15 +6,19 @@
         <h3 class="board_title"><%= board.title %></h3>
         <p class="board_content"><%= board.content %></p>
         <%= image_tag 'icon2.png', class: 'board_icon' %>
-        <div class="board_drop">
-          <%= image_tag 'drop.svg', class: 'board_drop_icon' %>
-          <div class="board_drop_content">
-            <%= link_to 'Edit', edit_board_path(board), class: 'board_drop_content_btn' %>
-            <%= link_to 'Delete', board_path(board), class: 'board_drop_content_btn', method: :delete %>
+        <% if user_signed_in? && current_user.has_written?(board) %>
+          <div class="board_drop">
+            <%= image_tag 'drop.svg', class: 'board_drop_icon' %>
+            <div class="board_drop_content">
+              <%= link_to 'Edit', edit_board_path(board), class: 'board_drop_content_btn' %>
+              <%= link_to 'Delete', board_path(board), class: 'board_drop_content_btn', method: :delete %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
-  <%= link_to '+ Add new board', new_board_path, class: 'new_board' %>
+  <% if user_signed_in? %>
+    <%= link_to '+ Add new board', new_board_path, class: 'new_board' %>
+  <% end %>
 </div>
