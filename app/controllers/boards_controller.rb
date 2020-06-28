@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :forbid_unuser, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   def index
     @boards = Board.all
@@ -46,6 +47,13 @@ class BoardsController < ApplicationController
   private
   def forbid_unuser
     if !user_signed_in?
+      redirect_to root_path, notice: 'You need to sign in'
+    end
+  end
+
+  def authenticate_user
+    board = Board.find(params[:id])
+    if current_user.id != board.user_id
       redirect_to root_path, notice: 'You don\'t have right'
     end
   end
