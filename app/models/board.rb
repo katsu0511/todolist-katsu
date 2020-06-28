@@ -5,4 +5,8 @@ class Board < ApplicationRecord
   validates :content, {length: {maximum: 140}}
 
   belongs_to :user
+
+  def author_name
+    user.display_name
+  end
 end
