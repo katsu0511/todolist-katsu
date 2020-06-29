@@ -1,2 +1,12 @@
-<h1>Show</h1>
-<%= link_to 'Edit', edit_profile_path %>
+<div class="box">
+  <div class="profile">
+    <div class="profile_img">
+      <%= image_tag 'icon1.png' %>
+    </div>
+    <div class="profile_info">
+      <h3 class="profile_info_name"><%= current_user.display_name %></h3>
+      <p class="profile_info_introduction">aaaaaaaaa</p>
+    </div>
+    <%= link_to 'Edit', edit_profile_path, class: 'profile_edit' %>
+  </div>
+</div>
