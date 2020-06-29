@@ -1,11 +1,7 @@
 <div class="box">
   <div class="profile">
     <div class="profile_img">
-      <% if current_user.profile&.avatar&.attached? %>
-        <%= image_tag current_user.profile.avatar %>
-      <% else %>
-        <%= image_tag 'icon1.png' %>
-      <% end %>
+      <%= image_tag 'icon1.png' %>
     </div>
     <div class="profile_info">
       <h3 class="profile_info_name"><%= current_user.display_name %></h3>
