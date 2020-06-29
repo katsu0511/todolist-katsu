@@ -25,7 +25,7 @@ header {
                     transition: all 0.3s;
                     
                     &:hover {
-                        color: rgb(238, 81, 81);
+                        color: lightblue;
                     }
                 }
 
@@ -39,7 +39,7 @@ header {
                         height: 18px;
                         transition: all 0.3s;
                         &:hover {
-                            background: red;
+                            background: lightblue;
                         }
                     }
                 }
