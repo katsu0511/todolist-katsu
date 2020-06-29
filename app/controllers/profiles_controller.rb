@@ -6,7 +6,18 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = current_user.build_profile
+    @profile = current_user.prepare_profile
+  end
+
+  def update
+    @profile = current_user.prepare_profile
+    @profile.assign_attributes(nickname: params[:nickname], introduction: params[:introduction], gender: params[:gender])
+    if @profile.save
+      redirect_to profile_path, notice: 'Successfully updated!'
+    else
+      flash[:notice] = 'failed to save'
+      render("profiles/edit")
+    end
   end
 
 end
