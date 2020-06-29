@@ -9,4 +9,10 @@
     </div>
     <%= link_to 'Edit', edit_profile_path, class: 'profile_edit' %>
   </div>
+
+  <div class="boards">
+    <% current_user.boards.each do |board| %>
+      <%= render 'commons/board', board: board %>
+    <% end %>
+  </div>
 </div>
