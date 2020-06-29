@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.prepare_profile
-    @profile.assign_attributes(nickname: params[:nickname], introduction: params[:introduction], gender: params[:gender])
+    @profile.assign_attributes(nickname: params[:nickname], introduction: params[:introduction], gender: params[:gender], avatar: params[:avatar])
     if @profile.save
       redirect_to profile_path, notice: 'Successfully updated!'
     else
