@@ -5,8 +5,8 @@
     </div>
     <div class="profile_info">
       <h3 class="profile_info_name"><%= current_user.display_name %></h3>
-      <h4 class="profile_info_introduction">Male</h4>
-      <p class="profile_info_introduction">aaaaaaaaa</p>
+      <h4 class="profile_info_gender"><%= current_user.gender %></h4>
+      <p class="profile_info_introduction"><%= current_user.introduction %></p>
     </div>
     <%= link_to 'Edit', edit_profile_path, class: 'profile_edit' %>
   </div>
