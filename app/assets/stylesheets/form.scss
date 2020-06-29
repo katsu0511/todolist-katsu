@@ -9,7 +9,8 @@ form {
             line-height: 25px;
             margin-bottom: 7px;
         }
-        input {
+
+        input, select {
             background: $back;
             width: 100%;
             height: 40px;
@@ -19,6 +20,7 @@ form {
             outline: none;
             border: none;
         }
+
         textarea {
             width: 100%;
             height: 203px;
@@ -27,6 +29,15 @@ form {
             outline: none;
             border: none;
             padding: 10px;
+        }
+
+        .gender {
+            display: block;
+            margin-top: 30px;
+        }
+
+        .gender_select {
+            padding-right: 10px;
         }
     }
     .actions {

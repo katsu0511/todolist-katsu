@@ -8,12 +8,12 @@
   <%= form_tag(boards_path) do %>
 
     <div class="field">
-      <div class="title">Name</div>
+      <label class="title">Name</label>
       <input type="text" name="title" value="<%= @board.title %>">
     </div>
 
     <div class="field">
-      <div class="content">Description</div>
+      <label class="content">Description</label>
       <textarea name="content"><%= @board.content %></textarea>
     </div>
 

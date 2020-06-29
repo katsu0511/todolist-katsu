@@ -1,1 +1,34 @@
-<h1>Edit</h1>
+<div class="box">
+  <% @profile.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+
+  <h2>Edit Profile</h2>
+
+  <%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
+
+    <div class="field">
+      <label class="nickname">Name</label>
+      <input type="text" name="nickname" value="<%= @profile.nickname %>">
+    </div>
+
+    <div class="field">
+      <label class="introduction">Introduction</label>
+      <textarea name="introduction"><%= @profile.introduction %></textarea>
+    </div>
+
+    <div class="field">
+      <label class="gender">Gender</label>
+      <select name="gender" class="gender_select">
+        <option value="0">male</option>
+        <option value="1">female</option>
+        <option value="2">other</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <input type="submit" value="Submit">
+    </div>
+
+  <% end %>
+</div>
