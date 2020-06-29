@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :boards, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   delegate :gender, :introduction, to: :profile, allow_nil: true
 
