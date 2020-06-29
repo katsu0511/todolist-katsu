@@ -25,21 +25,21 @@ header {
                     transition: all 0.3s;
                     
                     &:hover {
-                        color: rgb(238, 81, 81);
+                        color: lightblue;
                     }
                 }
 
                 &_img {
                     width: 18px;
                     height: 18px;
-                    margin: 19px 5px 0 0;
+                    margin: 20px 5px 0 0;
                     img {
                         background: $base;
                         width: 18px;
                         height: 18px;
                         transition: all 0.3s;
                         &:hover {
-                            background: red;
+                            background: lightblue;
                         }
                     }
                 }
@@ -84,7 +84,6 @@ header {
                     a {
                         background: $base;
                         color: white;
-                        padding-bottom: 7px;
 
                         &:hover {
                             background: $back;

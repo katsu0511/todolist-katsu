@@ -1,0 +1,23 @@
+<div class="box">
+  <div class="profile">
+    <div class="profile_img">
+      <% if current_user.profile&.avatar&.attached? %>
+        <%= image_tag current_user.profile.avatar %>
+      <% else %>
+        <%= image_tag 'icon1.png' %>
+      <% end %>
+    </div>
+    <div class="profile_info">
+      <h3 class="profile_info_name"><%= current_user.display_name %></h3>
+      <h4 class="profile_info_gender">・<%= current_user.gender %></h4>
+      <p class="profile_info_introduction"><%= current_user.introduction %></p>
+    </div>
+    <%= link_to 'Edit', edit_profile_path, class: 'profile_edit' %>
+  </div>
+
+  <div class="boards">
+    <% current_user.boards.each do |board| %>
+      <%= render 'commons/board', board: board %>
+    <% end %>
+  </div>
+</div>

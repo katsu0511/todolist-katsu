@@ -45,12 +45,6 @@ class BoardsController < ApplicationController
   end
 
   private
-  def forbid_unuser
-    if !user_signed_in?
-      redirect_to new_user_session_path, notice: 'You need to sign in'
-    end
-  end
-
   def authenticate_user
     board = Board.find(params[:id])
     if current_user.id != board.user_id

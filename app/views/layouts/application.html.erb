@@ -30,7 +30,7 @@
             <div class="board_drop header_drop">
               <%= image_tag 'icon1.png', class: 'header_drop_icon' %>
               <div class="board_drop_content header_drop_content">
-                <a href="#" class="board_drop_content_btn">Profile</a>
+                <%= link_to 'Profile', profile_path, class: 'board_drop_content_btn' %>
                 <%= link_to 'Sign out', destroy_user_session_path, data: {method: 'delete'}, class: 'board_drop_content_btn' %>
               </div>
             </div>
