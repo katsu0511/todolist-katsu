@@ -3,6 +3,12 @@
 .box {
     .task_show {
         &_top {
+            &_eyecatch {
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 35px;
+            }
+
             .task_top {
                 top: 107px;
                 right: 37px;
@@ -14,15 +20,22 @@
         }
 
         &_content {
-            p {
-                background: $back;
+            background: $back;
+            width: 100%;
+            border-radius: 10px;
+            padding: 20px 16px 15px;
+            margin-bottom: 35px;
+
+            &_p {
                 color: $base;
                 font-size: 14px;
                 line-height: 19px;
-                width: 100%;
-                border-radius: 10px;
-                padding: 20px 16px 26px;
-                margin-bottom: 35px;
+                margin-bottom: 20px;
+            }
+            &_date {
+                color: $base;
+                font-size: 14px;
+                line-height: 19px;
             }
         }
 

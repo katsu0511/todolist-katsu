@@ -5,7 +5,12 @@
     <p><%= message %></p>
   <% end %>
 
-  <%= form_tag(board_tasks_path(@task.board)) do %>
+  <%= form_tag(board_tasks_path(@task.board), {multipart: true}) do %>
+
+    <div class="field">
+      <label class="eyecatch">Eyecatch</label>
+      <input type="file" name="eyecatch" class="eyecatch_input" value="<%= @task.eyecatch %>">
+    </div>
 
     <div class="field">
       <label class="title">Name</label>
@@ -15,6 +20,11 @@
     <div class="field">
       <label class="content">Description</label>
       <textarea name="content"><%= @task.content %></textarea>
+    </div>
+
+    <div class="field">
+      <label class="expiration">Expiration</label>
+      <input type="date" name="expiration" value="<%= @task.expiration %>">
     </div>
 
     <div class="actions">
