@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     board = Board.find(params[:board_id])
     @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content])
     if @task.save
-      redirect_to board_path(board), notice: 'added a task'
+      redirect_to board_path(board), notice: 'added a task!'
     else
       flash[:notice] = 'failed to add a task'
       render("tasks/new")
@@ -41,6 +41,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    board = Board.find(params[:board_id])
+    @task = board.tasks.find(params[:id])
+    @task.destroy!
+    flash[:notice] = 'successfully deleted!'
+    redirect_to board_path(board)
   end
 
 end
