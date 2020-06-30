@@ -3,6 +3,12 @@
 .box {
     .task_show {
         &_top {
+            &_eyecatch {
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 35px;
+            }
+
             .task_top {
                 top: 107px;
                 right: 37px;

@@ -4,7 +4,7 @@
     <% @board.tasks.each do |task| %>
       <%= link_to board_task_path(@board, task), class: 'task' do %>
         <% if task.image_name %>
-          <%= image_tag "/eyecatches/#{task.image_name}" %>
+          <%= image_tag "/eyecatches/#{task.image_name}", class: 'task_eyecatch' %>
         <% end %>
         <h3 class="task_title"><%= task.title %></h3>
         <p class="task_content"><%= task.content %></p>
