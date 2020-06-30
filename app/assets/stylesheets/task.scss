@@ -1,0 +1,61 @@
+@import 'variables';
+
+.box {
+    .task_show {
+        &_top {
+            .task_top {
+                top: 107px;
+                right: 37px;
+
+                &_content {
+                    border: 1px solid $back;
+                }
+            }
+        }
+
+        &_content {
+            p {
+                background: $back;
+                color: $base;
+                font-size: 14px;
+                line-height: 19px;
+                width: 100%;
+                border-radius: 10px;
+                padding: 20px 16px 26px;
+                margin-bottom: 35px;
+            }
+        }
+
+        .comments {
+            h3 {
+                color: $base;
+                font-size: 26px;
+                font-weight: normal;
+                line-height: 36px;
+                margin-bottom: 25px;
+            }
+            &_content {
+                display: flex;
+                align-items: center;
+                margin-bottom: 32px;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 16px;
+                }
+
+                p {
+                    color: $base;
+                    font-size: 14px;
+                    line-height: 19px;
+                }
+            }
+            &_new {
+                font-size: 14px;
+                height: 57px;
+                line-height: 57px;
+            }
+        }
+    }
+}
