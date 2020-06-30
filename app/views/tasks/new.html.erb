@@ -5,7 +5,7 @@
     <p><%= message %></p>
   <% end %>
 
-  <%= form_tag(board_tasks_path(@task.board)) do %>
+  <%= form_tag(board_tasks_path(@task.board), {multipart: true}) do %>
 
     <div class="field">
       <label class="eyecatch">Eyecatch</label>
