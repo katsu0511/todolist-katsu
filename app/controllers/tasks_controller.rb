@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :forbid_unuser, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user_task, only: [:edit, :update, :destroy]
 
   def show
     board = Board.find(params[:board_id])
@@ -61,6 +63,15 @@ class TasksController < ApplicationController
     @task.destroy!
     flash[:notice] = 'successfully deleted!'
     redirect_to board_path(board)
+  end
+
+  private
+  def authenticate_user_task
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:id])
+    if current_user.id != task.user_id
+      redirect_to board_task_path(board, task), notice: 'You don\'t have right'
+    end
   end
 
 end

@@ -19,6 +19,8 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to '+ Add new card', new_board_task_path(@board), class: 'new_task new_board' %>
+    <% if user_signed_in? %>
+      <%= link_to '+ Add new card', new_board_task_path(@board), class: 'new_task new_board' %>
+    <% end %>
   </div>
 </div>
