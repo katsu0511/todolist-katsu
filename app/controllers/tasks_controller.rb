@@ -27,6 +27,17 @@ class TasksController < ApplicationController
   end
 
   def update
+    board = Board.find(params[:board_id])
+    @task = board.tasks.find(params[:id])
+    @task.title = params[:title]
+    @task.content = params[:content]
+    if @task.save
+      flash[:notice] = 'successfully updated task!'
+      redirect_to board_task_path(board, @task)
+    else
+      flash[:notice] = 'failed to update'
+      render("tasks/edit")
+    end
   end
 
   def destroy
