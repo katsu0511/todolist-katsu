@@ -1,1 +1,27 @@
-<h1>Show</h1>
+<div class="box">
+  <div class="task_show">
+    <div class="task_show_top">
+      <h2><%= @task.title %></h2>
+      <% if user_signed_in? && current_user.tasks.exists?(id: @task.id) %>
+        <div class="board_drop task_top">
+          <%= image_tag 'drop.svg', class: 'board_drop_icon task_top_icon' %>
+          <div class="board_drop_content task_top_content">
+            <%= link_to 'Edit', edit_board_task_path(@task.board, @task), class: 'board_drop_content_btn task_top_content_btn' %>
+            <%= link_to 'Delete', board_task_path(@task.board, @task), class: 'board_drop_content_btn task_top_content_btn', method: :delete %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="task_show_content">
+      <p><%= @task.content %></p>
+    </div>
+    <div class="comments">
+      <h3>Comment</h3>
+      <div class="comments_content">
+        <%= image_tag 'icon1.png' %>
+        <p>Successful businesses know the importance of building and maintaining good working. Successful businesses know the importanc</p>
+      </div>
+      <a href="#" class="comments_new new_board">+ Add new comment</a>
+    </div>
+  </div>
+</div>
