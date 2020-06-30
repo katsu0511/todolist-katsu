@@ -13,7 +13,8 @@
       <% end %>
     </div>
     <div class="task_show_content">
-      <p><%= @task.content %></p>
+      <p class="task_show_content_p"><%= @task.content %></p>
+      <time class="task_show_content_date"><%= @task.expiration %></time>
     </div>
     <div class="comments">
       <h3>Comment</h3>

@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
   def create
     board = Board.find(params[:board_id])
-    @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content])
+    @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content], expiration: params[:expiration])
     if @task.save
       redirect_to board_path(board), notice: 'added a task!'
     else
@@ -31,6 +31,7 @@ class TasksController < ApplicationController
     @task = board.tasks.find(params[:id])
     @task.title = params[:title]
     @task.content = params[:content]
+    @task.expiration = params[:expiration]
     if @task.save
       flash[:notice] = 'successfully updated task!'
       redirect_to board_task_path(board, @task)
