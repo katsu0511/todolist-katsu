@@ -5,11 +5,11 @@
     <p><%= message %></p>
   <% end %>
 
-  <%= form_tag(board_task_path(@task.board, @task), method: :put) do %>
+  <%= form_tag(board_task_path(@task.board, @task), method: :put, multipart: true) do %>
 
     <div class="field">
       <label class="eyecatch">Eyecatch</label>
-      <input type="file" name="eyecatch" value="<%= @task.eyecatch %>">
+      <input type="file" name="eyecatch" class="eyecatch_input" value="<%= @task.eyecatch %>">
     </div>
 
     <div class="field">

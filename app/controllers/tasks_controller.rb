@@ -39,6 +39,13 @@ class TasksController < ApplicationController
     @task.title = params[:title]
     @task.content = params[:content]
     @task.expiration = params[:expiration]
+
+    if params[:eyecatch]
+      @task.image_name = "#{current_user.id}.jpg"
+      eyecatch = params[:eyecatch]
+      File.binwrite("public/eyecatches/#{@task.image_name}", eyecatch.read)
+    end
+
     if @task.save
       flash[:notice] = 'successfully updated task!'
       redirect_to board_task_path(board, @task)
