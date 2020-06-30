@@ -9,6 +9,11 @@
         padding: 15px 16px 20px;
         margin-bottom: 24px;
         border-radius: 10px;
+        transition: all 0.3s;
+
+        &:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
 
         &_title {
             color: $base;
