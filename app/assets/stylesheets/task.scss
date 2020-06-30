@@ -1,0 +1,54 @@
+@import 'variables';
+
+.box {
+    .task {
+        display: block;
+        position: relative;
+        background: $back;
+        width: 100%;
+        padding: 15px 16px 20px;
+        margin-bottom: 24px;
+        border-radius: 10px;
+
+        &_title {
+            color: $base;
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 25px;
+            margin-bottom: 9px;
+        }
+
+        &_content {
+            color: $base;
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 25px;
+            margin-bottom: 10px;
+        }
+
+        &_by {
+            display: block;
+            color: $base;
+            font-size: 14px;
+            margin-bottom: 36px;
+        }
+
+        &_comment {
+            display: flex;
+            position: absolute;
+            bottom: 22px;
+            right: 22px;
+
+            &_count {
+                color: rgba(0, 0, 0, 0.2);
+                font-size: 14px;
+                line-height: 19px;
+                margin-right: 3px;
+            }
+            &_icon {
+                background: $back;
+            }
+        }
+
+    }
+}

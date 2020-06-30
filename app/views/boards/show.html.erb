@@ -1,3 +1,21 @@
 <div class="box">
   <h2><%= @board.title %></h2>
+  <div class="tasks">
+    <%= @board.tasks.each do |task| %>
+      <a href="#" class="task">
+        <h3 class="task_title"><%= task.title %></h3>
+        <p class="task_content"><%= task.content %></p>
+        <time class="task_by"><%= task.expiration %></time>
+        <div class="task_display board_display">
+          <%= image_tag 'icon2.png', class: 'task_display_icon board_display_icon' %>
+          <p class="task_display_name board_display_name"><%= task.user.display_name %></p>
+        </div>
+        <div class="task_comment">
+          <div class="task_comment_count">23</div>
+          <%= image_tag 'comment.svg', class: 'task_comment_icon' %>
+        </div>
+      </a>
+    <% end %>
+    <a href="#" class="new_task new_board">+ Add new card</a>
+  </div>
 </div>
