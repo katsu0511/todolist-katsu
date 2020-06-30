@@ -13,7 +13,9 @@ class TasksController < ApplicationController
   def create
     board = Board.find(params[:board_id])
     @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content], expiration: params[:expiration])
+
     if @task.save
+      @task.eyecatch = params[:eyecatch]
       redirect_to board_path(board), notice: 'added a task!'
     else
       flash[:notice] = 'failed to add a task'
