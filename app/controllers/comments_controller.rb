@@ -1,5 +1,11 @@
 class CommentsController < ApplicationController
 
+  def show
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:task_id])
+    @comment = task.comments.find(params[:id])
+  end
+
   def new
     board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])

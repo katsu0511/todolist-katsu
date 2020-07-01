@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   validates :content, {presence: true, length: {maximum: 140}}
 
-  belong_to :user
-  belong_to :task
+  belongs_to :user
+  belongs_to :task
 end
