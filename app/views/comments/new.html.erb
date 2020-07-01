@@ -1,6 +1,10 @@
 <div class="box">
   <h2>New Comment</h2>
 
+  <% @comment.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+
   <%= form_tag("/boards/#{params[:board_id]}/tasks/#{params[:task_id]}/comments") do %>
 
     <div class="field">
