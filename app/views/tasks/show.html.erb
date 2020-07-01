@@ -22,8 +22,12 @@
     <div class="comments">
       <h3>Comment</h3>
       <div class="comments_content">
-        <%= image_tag 'icon1.png' %>
-        <p>Successful businesses know the importance of building and maintaining good working. Successful businesses know the importanc</p>
+        <% @task.comments.each do |comment| %>
+          <div class="comment">
+            <%= image_tag 'icon1.png', class: 'comment_icon' %>
+            <p class="comment_content"><%= comment.content %></p>
+          </div>
+        <% end %>
       </div>
       <%= link_to '+ Add new comment', new_board_task_comment_path(@task.board, @task), class: 'comments_new new_board' %>
     </div>
