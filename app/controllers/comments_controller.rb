@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :forbid_unuser, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user_comment, only: [:edit, :update, :destroy]
 
   def show
     board = Board.find(params[:board_id])
@@ -59,7 +61,16 @@ class CommentsController < ApplicationController
       flash[:notice] = 'failed to delete comment'
       render("comments/show")
     end
+  end
 
+  private
+  def authenticate_user_comment
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:task_id])
+    comment = task.comments.find(params[:id])
+    if current_user.id != comment.user_id
+      redirect_to board_task_comment_path(board, task, comment), notice: 'You don\'t have right'
+    end
   end
 
 end

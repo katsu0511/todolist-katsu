@@ -29,7 +29,9 @@
           <% end %>
         <% end %>
       </div>
-      <%= link_to '+ Add new comment', new_board_task_comment_path(@task.board, @task), class: 'comments_new new_board' %>
+      <% if user_signed_in? %>
+        <%= link_to '+ Add new comment', new_board_task_comment_path(@task.board, @task), class: 'comments_new new_board' %>
+      <% end %>
     </div>
   </div>
 </div>
