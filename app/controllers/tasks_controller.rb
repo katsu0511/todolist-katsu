@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content], expiration: params[:expiration])
 
     if params[:eyecatch]
-      @task.image_name = "#{@task.id}.jpg"
+      @task.image_name = "task_#{@task.id}.jpg"
       eyecatch = params[:eyecatch]
       File.binwrite("public/eyecatches/#{@task.image_name}", eyecatch.read)
     end
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
     @task.expiration = params[:expiration]
 
     if params[:eyecatch]
-      @task.image_name = "#{@task.id}.jpg"
+      @task.image_name = "task_#{@task.id}.jpg"
       eyecatch = params[:eyecatch]
       File.binwrite("public/eyecatches/#{@task.image_name}", eyecatch.read)
     end
