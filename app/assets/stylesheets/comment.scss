@@ -26,12 +26,16 @@
             top: 50px;
             right: 0;
 
-            &_icon {
-
-            }
             &_content {
-                &_btn {
+                background: $back;
 
+                &_btn {
+                    background: $back;
+
+                    &:hover {
+                        background: $base;
+                        color: white;
+                    }
                 }
             }
         }

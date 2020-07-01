@@ -7,6 +7,7 @@
         <%= image_tag 'drop.svg', class: 'board_drop_icon comment_drop_icon' %>
         <div class="board_drop_content comment_drop_content">
           <%= link_to 'Edit', edit_board_task_comment_path(@comment.task.board, @comment.task, @comment), class: 'board_drop_content_btn comment_drop_content_btn' %>
+          <%= link_to 'Delete', board_task_comment_path(@comment.task.board, @comment.task, @comment), class: 'board_drop_content_btn comment_drop_content_btn', method: :delete %>
         </div>
       </div>
     <% end %>

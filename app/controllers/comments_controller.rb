@@ -47,4 +47,19 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:task_id])
+    @comment = task.comments.find(params[:id])
+
+    if @comment.destroy
+      flash[:notice] = 'successfully deleted comment!'
+      redirect_to board_task_path(board, task)
+    else
+      flash[:notice] = 'failed to delete comment'
+      render("comments/show")
+    end
+
+  end
+
 end
