@@ -16,6 +16,10 @@
                 &_content {
                     border: 1px solid $base;
                     border-radius: 12px;
+
+                    &_btn {
+                        padding-bottom: 6px;
+                    }
                 }
             }
         }
