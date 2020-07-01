@@ -7,6 +7,8 @@ class Task < ApplicationRecord
   validates :content, {length: {maximum: 400}}
   validates :expiration, presence: true
 
+  has_many :comments, dependent: :destroy
+
   belongs_to :user
   belongs_to :board
 end
