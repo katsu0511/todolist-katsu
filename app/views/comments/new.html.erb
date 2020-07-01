@@ -1,1 +1,16 @@
-New
+<div class="box">
+  <h2>New Comment</h2>
+
+  <%= form_tag("/boards/#{params[:board_id]}/tasks/#{params[:task_id]}/comments") do %>
+
+    <div class="field">
+      <textarea name="content"><%= @comment.content %></textarea>
+    </div>
+
+    <div class="actions">
+      <input type="submit" value="Submit">
+    </div>
+
+  <% end %>
+
+</div>
