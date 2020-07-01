@@ -26,4 +26,25 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:task_id])
+    @comment = task.comments.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:task_id])
+    @comment = task.comments.find(params[:id])
+    @comment.content = params[:content]
+
+    if @comment.save
+      flash[:notice] = 'successfully updated comment!'
+      redirect_to board_task_path(board, task)
+    else
+      flash[:notice] = 'failed to update comment'
+      render("comments/edit")
+    end
+  end
+
 end

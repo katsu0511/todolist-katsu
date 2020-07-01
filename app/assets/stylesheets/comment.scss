@@ -3,10 +3,11 @@
 .box {
     .comment_show {
         display: flex;
+        position: relative;
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding-top: 20vh;
+        padding-top: 100px;
 
         &_icon {
             min-width: 100px;
@@ -17,7 +18,22 @@
             font-size: 18px;
             color: $base;
             line-height: 24px;
-            max-width: 70%;
+            min-width: 140px;
+        }
+
+        .comment_drop {
+            position: absolute;
+            top: 50px;
+            right: 0;
+
+            &_icon {
+
+            }
+            &_content {
+                &_btn {
+
+                }
+            }
         }
     }
 }
