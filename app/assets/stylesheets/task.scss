@@ -14,7 +14,8 @@
                 right: 37px;
 
                 &_content {
-                    border: 1px solid $back;
+                    border: 1px solid $base;
+                    border-radius: 12px;
                 }
             }
         }
