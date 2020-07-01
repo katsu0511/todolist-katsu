@@ -1,13 +1,18 @@
 @import 'variables';
 
 .box {
+    .comment_h {
+        font-size: 30px;
+        text-align: center;
+    }
+
     .comment_show {
         display: flex;
         position: relative;
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding-top: 100px;
+        padding-top: 50px;
 
         &_icon {
             min-width: 100px;
