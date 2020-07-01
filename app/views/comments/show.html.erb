@@ -1,7 +1,11 @@
 <div class="box">
   <h2 class="comment_h">Comment</h2>
   <div class="comment_show">
-    <%= image_tag 'icon2.png', class: 'comment_show_icon' %>
+    <% if @comment.user.profile.image_name %>
+      <%= image_tag "/avatars/#{@comment.user.profile.image_name}", class: 'comment_show_icon' %>
+    <% else %>
+      <%= image_tag 'user.svg', class: 'comment_show_icon' %>
+    <% end %>
     <p class="comment_show_content"><%= @comment.content %></p>
     <% if user_signed_in? && current_user.comments.exists?(id: @comment.id) %>
       <div class="board_drop comment_drop">
