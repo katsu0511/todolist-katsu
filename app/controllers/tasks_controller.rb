@@ -15,9 +15,10 @@ class TasksController < ApplicationController
   def create
     board = Board.find(params[:board_id])
     @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content], expiration: params[:expiration])
+    task_img_id = Task.last.id + 1
 
     if params[:eyecatch]
-      @task.image_name = "task_#{@task.id}.jpg"
+      @task.image_name = "task_#{task_img_id}.jpg"
       eyecatch = params[:eyecatch]
       File.binwrite("public/eyecatches/#{@task.image_name}", eyecatch.read)
     end
