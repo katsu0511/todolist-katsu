@@ -12,34 +12,34 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-	font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 html,
 body {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	background: #fff;
-	color: #333;
-	font-family: Avenir, "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
-	font-size: 1.6rem;
-	font-weight: 500;
-	line-height: 1.6;
-	overflow-wrap: break-word;
-	overflow-x: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background: #fff;
+    color: #333;
+    font-family: Avenir, "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
 }
 
 .wrap {
-  overflow: hidden;  
+    overflow: hidden;  
 }
 
 article,
@@ -49,7 +49,7 @@ header,
 nav,
 section,
 main {
-	display: block;
+    display: block;
 }
 
 h1,
@@ -115,95 +115,106 @@ thead,
 tr,
 th,
 td {
-	border: 0;
-	margin: 0;
-	padding: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-	color: inherit;
-	outline: none;
-  text-decoration: none;
+    color: inherit;
+    outline: none;
+    text-decoration: none;
 }
 
 img {
-	border: none;
-	height: auto;
-	max-width: 100%;
-	vertical-align: top;
+    border: none;
+    height: auto;
+    max-width: 100%;
+    vertical-align: top;
 }
 
 video {
-	height: auto;
-	max-width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
 code,
 kbd,
 pre,
 samp {
-	font-family: monospace, sans-serif;
-	font-size: inherit;
+    font-family: monospace, sans-serif;
+    font-size: inherit;
 }
 
 ul,
 ol {
-	list-style: none;
+    list-style: none;
 }
 
 table {
-	border: 1px solid #eee;
-	border-collapse: collapse;
-	border-spacing: 0;
-	table-layout: fixed;
-	width: 100%;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
 }
 
 th,
 td {
-	border: 1px solid #eee;
-	padding: 4px 6px;
-	text-align: left;
-	vertical-align: top;
+    border: 1px solid #eee;
+    padding: 4px 6px;
+    text-align: left;
+    vertical-align: top;
 }
 
 blockquote,
 q {
-	quotes: none;
+    quotes: none;
 }
 
 blockquote::after,
 blockquote::before,
 q::after,
 q::before {
-	content: "";
-	content: none;
+    content: "";
+    content: none;
 }
 
 address {
-	font-style: normal;
+    font-style: normal;
 }
 
 form {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 form button {
-	-webkit-appearance: none;
-	-webkit-transition: all 0.3s ease 0s;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 1.6rem;
-	margin: 0;
-	padding: 0.6em 2em;
-	text-decoration: none;
-	transition: all 0.3s ease 0s;
-	width: auto;
+    -webkit-appearance: none;
+    -webkit-transition: all 0.3s ease 0s;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0.6em 2em;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    width: auto;
 }
 
 .box {
     width: calc(100% - 30px * 2);
     height: 100%;
     margin: 0 30px;
+}
+
+.notice, .alert {
+    background: orange;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
 }
