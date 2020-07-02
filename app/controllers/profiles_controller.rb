@@ -20,9 +20,9 @@ class ProfilesController < ApplicationController
     end
 
     if @profile.save
-      redirect_to profile_path, notice: 'Successfully updated!'
+      redirect_to profile_path, notice: 'successfully updated your profile!'
     else
-      flash[:notice] = 'failed to save'
+      flash[:notice] = 'failed to update'
       render("profiles/edit")
     end
   end

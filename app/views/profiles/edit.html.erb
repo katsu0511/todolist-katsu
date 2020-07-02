@@ -1,7 +1,7 @@
 <div class="box">
 
   <% @profile.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
+    <p class="error_message"><%= message %></p>
   <% end %>
 
   <h2>Edit Profile</h2>

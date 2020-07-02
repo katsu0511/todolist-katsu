@@ -6,7 +6,7 @@
         position: relative;
         background: $back;
         width: 100%;
-        padding: 15px 16px 20px;
+        padding: 20px;
         margin-bottom: 24px;
         border-radius: 10px;
         transition: all 0.3s;
@@ -17,6 +17,7 @@
 
         &_eyecatch {
             width: 100%;
+            border-radius: 10px;
             margin-bottom: 27px;
         }
 
@@ -50,7 +51,7 @@
             right: 22px;
 
             &_count {
-                color: rgba(0, 0, 0, 0.2);
+                color: $base;
                 font-size: 14px;
                 line-height: 19px;
                 margin-right: 3px;
