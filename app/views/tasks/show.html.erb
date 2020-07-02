@@ -24,7 +24,7 @@
       <div class="comments_content">
         <% @task.comments.each do |comment| %>
           <%= link_to board_task_comment_path(@task.board, @task, comment), class: 'comment' do %>
-            <% if comment.user.profile.image_name %>
+            <% if comment.user.profile&.image_name %>
               <%= image_tag "/avatars/#{comment.user.profile.image_name}", class: 'comment_icon' %>
             <% else %>
               <%= image_tag 'user.svg', class: 'comment_icon' %>

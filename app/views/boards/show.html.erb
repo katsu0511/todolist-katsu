@@ -10,7 +10,7 @@
         <p class="task_content"><%= task.content %></p>
         <time class="task_by"><%= task.expiration %></time>
         <div class="task_display board_display">
-          <% if task.user.profile.image_name %>
+          <% if task.user.profile&.image_name %>
             <%= image_tag "/avatars/#{task.user.profile.image_name}", class: 'task_display_icon board_display_icon' %>
           <% else %>
             <%= image_tag 'user.svg', class: 'task_display_icon board_display_icon' %>
