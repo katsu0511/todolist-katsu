@@ -2,7 +2,7 @@
   <h2>New Board</h2>
 
   <% @board.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
+    <p class="error_message"><%= message %></p>
   <% end %>
 
   <%= form_tag(boards_path) do %>
