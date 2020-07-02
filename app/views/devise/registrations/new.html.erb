@@ -19,6 +19,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
+    <%= link_to 'Sign in', new_user_session_path, class: 'signin' %>
+
     <div class="actions">
       <%= f.submit "Submit" %>
     </div>

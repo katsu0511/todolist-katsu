@@ -28,7 +28,7 @@
           </div>
           <% if user_signed_in? %>
             <div class="board_drop header_drop">
-              <% if current_user.profile.image_name %>
+              <% if current_user.profile&.image_name %>
                 <%= image_tag "/avatars/#{current_user.profile.image_name}", class: 'header_drop_icon' %>
               <% else %>
                 <%= image_tag 'user.svg', class: 'header_drop_icon' %>

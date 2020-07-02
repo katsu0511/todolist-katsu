@@ -1,7 +1,7 @@
 <div class="box">
   <h2 class="comment_h">Comment</h2>
   <div class="comment_show">
-    <% if @comment.user.profile.image_name %>
+    <% if @comment.user.profile&.image_name %>
       <%= image_tag "/avatars/#{@comment.user.profile.image_name}", class: 'comment_show_icon' %>
     <% else %>
       <%= image_tag 'user.svg', class: 'comment_show_icon' %>

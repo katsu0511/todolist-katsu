@@ -2,7 +2,7 @@
   <h3 class="board_title"><%= link_to board.title, board_path(board) %></h3>
   <p class="board_content"><%= board.content %></p>
   <div class="board_display">
-    <% if board.user.profile.image_name %>
+    <% if board.user.profile&.image_name %>
       <%= image_tag "/avatars/#{board.user.profile.image_name}", class: 'board_display_icon' %>
     <% else %>
       <%= image_tag 'user.svg', class: 'board_display_icon' %>

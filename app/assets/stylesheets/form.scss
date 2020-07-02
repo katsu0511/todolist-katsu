@@ -2,7 +2,9 @@
 
 form {
     position: relative;
+
     .field {
+
         label {
             font-size: 18px;
             color: $base;
@@ -47,7 +49,9 @@ form {
             padding: 0;
         }
     }
+
     .actions {
+        
         input {
             background: $btn;
             color: white;
@@ -59,6 +63,26 @@ form {
             margin: 300px 0 32px;
             outline: none;
             border: none;
+        }
+    }
+
+    .signup, .signin {
+        display: block;
+        width: 80px;
+        height: 30px;
+        background: $back;
+        color: $base;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid $base;
+        border-radius: 5px;
+        margin-top: 14px;
+        transition: all 0.3s;
+
+        &:hover {
+            background: $base;
+            color: white;
         }
     }
 }

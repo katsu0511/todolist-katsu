@@ -1,7 +1,7 @@
 <div class="box">
   <div class="profile">
     <div class="profile_img">
-      <% if @profile.image_name %>
+      <% if @profile&.image_name %>
         <%= image_tag "/avatars/#{@profile.image_name}" %>
       <% else %>
         <%= image_tag 'user.svg' %>
