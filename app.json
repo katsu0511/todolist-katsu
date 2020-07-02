@@ -1,0 +1,16 @@
+{
+  "name": "todo list",
+  "description": "This is todolist",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/katsu0511/todolist-katsu",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
