@@ -20,10 +20,10 @@ class CommentsController < ApplicationController
     @comment = task.comments.build(user_id: current_user.id, content: params[:content])
 
     if @comment.save
-      flash[:notice] = 'successfully saved comment!'
+      flash[:notice] = 'successfully saved a comment!'
       redirect_to board_task_path(board, task)
     else
-      flash[:notice] = 'failed to save comment'
+      flash[:notice] = 'failed to save'
       render("comments/new")
     end
   end
@@ -41,10 +41,10 @@ class CommentsController < ApplicationController
     @comment.content = params[:content]
 
     if @comment.save
-      flash[:notice] = 'successfully updated comment!'
+      flash[:notice] = 'successfully updated a comment!'
       redirect_to board_task_path(board, task)
     else
-      flash[:notice] = 'failed to update comment'
+      flash[:notice] = 'failed to update'
       render("comments/edit")
     end
   end
@@ -54,12 +54,9 @@ class CommentsController < ApplicationController
     task = board.tasks.find(params[:task_id])
     @comment = task.comments.find(params[:id])
 
-    if @comment.destroy
-      flash[:notice] = 'successfully deleted comment!'
+    if @comment.destroy!
+      flash[:notice] = 'successfully deleted a comment!'
       redirect_to board_task_path(board, task)
-    else
-      flash[:notice] = 'failed to delete comment'
-      render("comments/show")
     end
   end
 

@@ -24,9 +24,9 @@ class TasksController < ApplicationController
     end
 
     if @task.save
-      redirect_to board_path(board), notice: 'added a task!'
+      redirect_to board_path(board), notice: 'successfully saved a task!'
     else
-      flash[:notice] = 'failed to add a task'
+      flash[:notice] = 'failed to save'
       render("tasks/new")
     end
   end
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     end
 
     if @task.save
-      flash[:notice] = 'successfully updated task!'
+      flash[:notice] = 'successfully updated a task!'
       redirect_to board_task_path(board, @task)
     else
       flash[:notice] = 'failed to update'
@@ -62,7 +62,7 @@ class TasksController < ApplicationController
     board = Board.find(params[:board_id])
     @task = board.tasks.find(params[:id])
     @task.destroy!
-    flash[:notice] = 'successfully deleted!'
+    flash[:notice] = 'successfully deleted a task!'
     redirect_to board_path(board)
   end
 
