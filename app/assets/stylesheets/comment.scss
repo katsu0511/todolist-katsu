@@ -21,10 +21,18 @@
             margin-right: 20px;
         }
         &_content {
-            font-size: 18px;
             color: $base;
-            line-height: 24px;
-            min-width: 140px;
+
+            &_name {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+            
+            &_p {
+                font-size: 18px;
+                line-height: 24px;
+                min-width: 140px;
+            }
         }
 
         .comment_drop {

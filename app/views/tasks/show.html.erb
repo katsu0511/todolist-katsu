@@ -29,7 +29,10 @@
             <% else %>
               <%= image_tag 'user.svg', class: 'comment_icon' %>
             <% end %>
-            <p class="comment_content"><%= comment.content %></p>
+            <div class="comment_content">
+              <div class="comment_content_name"><%= comment.user.display_name %></div>
+              <p class="comment_content_p"><%= comment.content %></p>
+            </div>
           <% end %>
         <% end %>
       </div>

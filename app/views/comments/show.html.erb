@@ -6,7 +6,10 @@
     <% else %>
       <%= image_tag 'user.svg', class: 'comment_show_icon' %>
     <% end %>
-    <p class="comment_show_content"><%= @comment.content %></p>
+    <div class="comment_show_content">
+      <div class="comment_show_content_name"><%= @comment.user.display_name %></div>
+      <p class="comment_show_content_p"><%= @comment.content %></p>
+    </div>
     <% if user_signed_in? && current_user.comments.exists?(id: @comment.id) %>
       <div class="board_drop comment_drop">
         <%= image_tag 'drop.svg', class: 'board_drop_icon comment_drop_icon' %>
