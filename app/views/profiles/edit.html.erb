@@ -9,11 +9,6 @@
   <%= form_tag(profile_path, method: :put, multipart: true) do %>
 
     <div class="field">
-      <label class="avatar">Avatar</label>
-      <input type="file" name="avatar" class="avatar_input" value="<%= @profile.avatar %>">
-    </div>
-
-    <div class="field">
       <label class="nickname">Name</label>
       <input type="text" name="nickname" value="<%= @profile.nickname %>" >
     </div>
