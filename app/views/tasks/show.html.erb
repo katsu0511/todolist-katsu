@@ -3,7 +3,7 @@
     <div class="task_show_top">
       <h2><%= @task.title %></h2>
       <% if @task.eyecatch.attached? %>
-        <%= image_tag @task.eyecatch %>
+        <%= image_tag @task.eyecatch, class: 'task_show_top_eyecatch' %>
       <% end %>
       <% if user_signed_in? && current_user.tasks.exists?(id: @task.id) %>
         <div class="board_drop task_top">
