@@ -2,10 +2,10 @@
   <div class="task_show">
     <div class="task_show_top">
       <h2><%= @task.title %></h2>
+      <% if @task.eyecatch.attached? %>
+        <%= image_tag @task.eyecatch %>
+      <% end %>
       <% if user_signed_in? && current_user.tasks.exists?(id: @task.id) %>
-        <%= if task.eyecatch.attached? %>
-          <%= image_tag task.eyecatch %>
-        <% end %>
         <div class="board_drop task_top">
           <%= image_tag 'drop.svg', class: 'board_drop_icon task_top_icon' %>
           <div class="board_drop_content task_top_content">
