@@ -5,7 +5,7 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_tag(board_tasks_path(@task.board)) do %>
+  <%= form_with model: @task do |f| %>
 
     <div class="field">
       <label class="title">Name</label>
