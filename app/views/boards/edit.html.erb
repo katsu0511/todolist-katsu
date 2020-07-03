@@ -5,20 +5,20 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_tag(board_path(@board), method: :put) do %>
+  <%= form_with model: @board, local: true do |f| %>
 
     <div class="field">
       <label class="title">Name</label>
-      <input type="text" name="title" value="<%= @board.title %>">
+      <%= f.text_field :title %>
     </div>
 
     <div class="field">
       <label class="content">Description</label>
-      <textarea name="content"><%= @board.content %></textarea>
+      <%= f.text_area :content %>
     </div>
 
     <div class="actions">
-      <input type="submit" value="Submit">
+      <%= f.submit :Submit %>
     </div>
     
   <% end %>

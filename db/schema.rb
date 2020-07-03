@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_122744) do
+ActiveRecord::Schema.define(version: 2020_07_03_082910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_122744) do
     t.integer "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image_name"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -71,10 +70,9 @@ ActiveRecord::Schema.define(version: 2020_07_01_122744) do
     t.bigint "board_id", null: false
     t.string "title", null: false
     t.text "content", null: false
+    t.date "expiration", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "expiration"
-    t.string "image_name"
     t.index ["board_id"], name: "index_tasks_on_board_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

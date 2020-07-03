@@ -5,14 +5,14 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_tag("/boards/#{params[:board_id]}/tasks/#{params[:task_id]}/comments") do %>
+  <%= form_with model: @comment, url: board_task_comments_path(@comment.task.board, @comment.task, @comment), method: :post, local: true do |f| %>
 
     <div class="field">
-      <textarea name="content"><%= @comment.content %></textarea>
+      <%= f.text_area :content %>
     </div>
 
     <div class="actions">
-      <input type="submit" value="Submit">
+      <%= f.submit :Submit %>
     </div>
 
   <% end %>

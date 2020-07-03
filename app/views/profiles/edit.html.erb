@@ -6,34 +6,25 @@
 
   <h2>Edit Profile</h2>
 
-  <%= form_tag(profile_path, method: :put, multipart: true) do %>
-
-    <div class="field">
-      <label class="avatar">Avatar</label>
-      <input type="file" name="avatar" class="avatar_input" value="<%= @profile.avatar %>">
-    </div>
+  <%= form_with model: @profile, url: profile_path, method: 'put', local: true do |f| %>
 
     <div class="field">
       <label class="nickname">Name</label>
-      <input type="text" name="nickname" value="<%= @profile.nickname %>" >
+      <%= f.text_field :nickname %>
     </div>
 
     <div class="field">
       <label class="introduction">Introduction</label>
-      <textarea name="introduction"><%= @profile.introduction %></textarea>
+      <%= f.text_area :introduction %>
     </div>
 
     <div class="field">
       <label class="gender">Gender</label>
-      <select name="gender" class="gender_select" value="<%= @profile.gender %>">
-        <option value="male">male</option>
-        <option value="female">female</option>
-        <option value="other">other</option>
-      </select>
+      <%= f.select :gender, ['male', 'female', 'other'], {}, class: 'gender_select' %>
     </div>
 
     <div class="actions">
-      <input type="submit" value="Submit">
+      <%= f.submit :Submit %>
     </div>
 
   <% end %>

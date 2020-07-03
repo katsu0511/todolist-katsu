@@ -17,14 +17,14 @@ class CommentsController < ApplicationController
   def create
     board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])
-    @comment = task.comments.build(user_id: current_user.id, content: params[:content])
+    @comment = task.comments.build(comment_params)
+    @comment.user_id = current_user.id
 
     if @comment.save
-      flash[:notice] = 'successfully saved a comment!'
-      redirect_to board_task_path(board, task)
+      redirect_to board_task_path(board, task), notice: 'successfully saved a comment!'
     else
-      flash[:notice] = 'failed to save'
-      render("comments/new")
+      flash.now[:error] = 'failed to save'
+      render :new
     end
   end
 
@@ -38,26 +38,21 @@ class CommentsController < ApplicationController
     board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])
     @comment = task.comments.find(params[:id])
-    @comment.content = params[:content]
 
-    if @comment.save
-      flash[:notice] = 'successfully updated a comment!'
-      redirect_to board_task_path(board, task)
+    if @comment.update(comment_params)
+      redirect_to board_task_path(board, task), notice: 'successfully updated a comment!'
     else
-      flash[:notice] = 'failed to update'
-      render("comments/edit")
+      flash.now[:error] = 'failed to update'
+      render :edit
     end
   end
 
   def destroy
     board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])
-    @comment = task.comments.find(params[:id])
-
-    if @comment.destroy!
-      flash[:notice] = 'successfully deleted a comment!'
-      redirect_to board_task_path(board, task)
-    end
+    comment = task.comments.find(params[:id])
+    comment.destroy!
+    redirect_to board_task_path(board, task), notice: 'successfully deleted a comment!'
   end
 
   private
@@ -68,6 +63,10 @@ class CommentsController < ApplicationController
     if current_user.id != comment.user_id
       redirect_to board_task_comment_path(board, task, comment), notice: 'You don\'t have right'
     end
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 
 end

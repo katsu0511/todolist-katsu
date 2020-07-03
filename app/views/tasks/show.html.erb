@@ -2,9 +2,6 @@
   <div class="task_show">
     <div class="task_show_top">
       <h2><%= @task.title %></h2>
-      <% if @task.image_name %>
-        <%= image_tag "/eyecatches/#{@task.image_name}", class: 'task_show_top_eyecatch' %>
-      <% end %>
       <% if user_signed_in? && current_user.tasks.exists?(id: @task.id) %>
         <div class="board_drop task_top">
           <%= image_tag 'drop.svg', class: 'board_drop_icon task_top_icon' %>
@@ -24,11 +21,7 @@
       <div class="comments_content">
         <% @task.comments.each do |comment| %>
           <%= link_to board_task_comment_path(@task.board, @task, comment), class: 'comment' do %>
-            <% if comment.user.profile&.image_name %>
-              <%= image_tag "/avatars/#{comment.user.profile.image_name}", class: 'comment_icon' %>
-            <% else %>
-              <%= image_tag 'user.svg', class: 'comment_icon' %>
-            <% end %>
+            <%= image_tag 'user.svg', class: 'comment_icon' %>
             <div class="comment_content">
               <div class="comment_content_name"><%= comment.user.display_name %></div>
               <p class="comment_content_p"><%= comment.content %></p>

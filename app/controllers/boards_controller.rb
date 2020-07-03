@@ -15,13 +15,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = current_user.boards.build(title: params[:title], content: params[:content])
+    @board = current_user.boards.build(board_params)
     if @board.save
-      flash[:notice] = 'successfully saved a board!'
-      redirect_to('/')
+      redirect_to root_path, notice: 'successfully saved a board!'
     else
-      flash[:notice] = 'failed to save'
-      render("boards/new")
+      flash.now[:error] = 'failed to save'
+      render :new
     end
   end
 
@@ -31,14 +30,11 @@ class BoardsController < ApplicationController
 
   def update
     @board = current_user.boards.find(params[:id])
-    @board.title = params[:title]
-    @board.content = params[:content]
-    if @board.save
-      flash[:notice] = 'successfully updated a board!'
-      redirect_to('/')
+    if @board.update(board_params)
+      redirect_to root_path, notice: 'successfully updated a board!'
     else
-      flash[:notice] = 'failed to update'
-      render("boards/edit")
+      flash.now[:error] = 'failed to update'
+      render :edit
     end
   end
 
@@ -54,6 +50,10 @@ class BoardsController < ApplicationController
     if current_user.id != board.user_id
       redirect_to root_path, notice: 'You don\'t have right'
     end
+  end
+
+  def board_params
+    params.require(:board).permit(:title, :content)
   end
 
 end
