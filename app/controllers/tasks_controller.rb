@@ -14,13 +14,14 @@ class TasksController < ApplicationController
 
   def create
     board = Board.find(params[:board_id])
-    @task = board.tasks.build(user_id: current_user.id, title: params[:title], content: params[:content], expiration: params[:expiration])
+    @task = board.tasks.build(task_params)
+    @task.user_id = current_user.id
 
     if @task.save
       redirect_to board_path(board), notice: 'successfully saved a task!'
     else
-      flash[:notice] = 'failed to save'
-      render("tasks/new")
+      flash.now[:error] = 'failed to save'
+      render :new
     end
   end
 
@@ -32,16 +33,12 @@ class TasksController < ApplicationController
   def update
     board = Board.find(params[:board_id])
     @task = board.tasks.find(params[:id])
-    @task.title = params[:title]
-    @task.content = params[:content]
-    @task.expiration = params[:expiration]
 
-    if @task.save
-      flash[:notice] = 'successfully updated a task!'
-      redirect_to board_task_path(board, @task)
+    if @task.update(task_params)
+      redirect_to board_task_path(board, @task), notice: 'successfully updated a task!'
     else
-      flash[:notice] = 'failed to update'
-      render("tasks/edit")
+      flash.now[:error] = 'failed to update'
+      render :edit
     end
   end
 
@@ -49,8 +46,7 @@ class TasksController < ApplicationController
     board = Board.find(params[:board_id])
     @task = board.tasks.find(params[:id])
     @task.destroy!
-    flash[:notice] = 'successfully deleted a task!'
-    redirect_to board_path(board)
+    redirect_to board_path(board), notice: 'successfully deleted a task!'
   end
 
   private
@@ -60,6 +56,14 @@ class TasksController < ApplicationController
     if current_user.id != task.user_id
       redirect_to board_task_path(board, task), notice: 'You don\'t have right'
     end
+  end
+
+  def task_params
+    params.require(:task).permit(
+      :title,
+      :content,
+      :expiration
+    )
   end
 
 end

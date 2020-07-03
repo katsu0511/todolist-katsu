@@ -5,25 +5,25 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_with url: board_tasks_path, method: :post, local: true do |f| %>
+  <%= form_with model: @task, url: board_tasks_path(@task.board), method: :post, local: true do |f| %>
 
     <div class="field">
       <label class="title">Name</label>
-      <input type="text" name="title" value="<%= @task.title %>">
+      <%= f.text_field :title %>
     </div>
 
     <div class="field">
       <label class="content">Description</label>
-      <textarea name="content"><%= @task.content %></textarea>
+      <%= f.text_area :content %>
     </div>
 
     <div class="field">
       <label class="expiration">Expiration</label>
-      <input type="date" name="expiration" value="<%= @task.expiration %>">
+      <%= f.date_field :expiration %>
     </div>
 
     <div class="actions">
-      <input type="submit" value="Submit">
+      <%= f.submit :Submit %>
     </div>
     
   <% end %>
