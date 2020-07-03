@@ -21,7 +21,7 @@
       <div class="comments_content">
         <% @task.comments.each do |comment| %>
           <%= link_to board_task_comment_path(@task.board, @task, comment), class: 'comment' do %>
-            <%= image_tag 'user.svg', class: 'comment_icon' %>
+            <%= image_tag current_user.avatar_image, class: 'comment_icon' %>
             <div class="comment_content">
               <div class="comment_content_name"><%= comment.user.display_name %></div>
               <p class="comment_content_p"><%= comment.content %></p>
