@@ -5,12 +5,7 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_tag(board_tasks_path(@task.board), {multipart: true}) do %>
-
-    <div class="field">
-      <label class="eyecatch">Eyecatch</label>
-      <input type="file" name="eyecatch" class="eyecatch_input" value="<%= @task.eyecatch %>">
-    </div>
+  <%= form_tag(board_tasks_path(@task.board)) do %>
 
     <div class="field">
       <label class="title">Name</label>
