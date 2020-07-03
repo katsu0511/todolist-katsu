@@ -5,7 +5,7 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_with model: @task do |f| %>
+  <%= form_with url: board_tasks_path, method: :post, local: true do |f| %>
 
     <div class="field">
       <label class="title">Name</label>
