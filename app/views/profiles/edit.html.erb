@@ -6,7 +6,7 @@
 
   <h2>Edit Profile</h2>
 
-  <%= form_tag(profile_path, method: :put, multipart: true) do %>
+  <%= form_with model: @profile do |f| %>
 
     <div class="field">
       <label class="nickname">Name</label>
