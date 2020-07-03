@@ -62,7 +62,8 @@ class TasksController < ApplicationController
     params.require(:task).permit(
       :title,
       :content,
-      :expiration
+      :expiration,
+      :eyecatch
     )
   end
 
