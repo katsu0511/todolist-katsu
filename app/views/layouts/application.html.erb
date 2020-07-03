@@ -28,11 +28,7 @@
           </div>
           <% if user_signed_in? %>
             <div class="board_drop header_drop">
-              <% if current_user.profile&.image_name %>
-                <%= image_tag "/avatars/#{current_user.profile.image_name}", class: 'header_drop_icon' %>
-              <% else %>
-                <%= image_tag 'user.svg', class: 'header_drop_icon' %>
-              <% end %>
+              <%= image_tag 'user.svg', class: 'header_drop_icon' %>
               <div class="board_drop_content header_drop_content">
                 <%= link_to 'Profile', profile_path, class: 'board_drop_content_btn' %>
                 <%= link_to 'Sign out', destroy_user_session_path, data: {method: 'delete'}, class: 'board_drop_content_btn' %>
