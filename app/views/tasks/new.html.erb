@@ -8,6 +8,11 @@
   <%= form_with model: @task, url: board_tasks_path(@task.board), method: :post, local: true do |f| %>
 
     <div class="field">
+      <label class="eyecatch">Eyecatch</label>
+      <%= f.file_field :eyecatch, class: 'image_input' %>
+    </div>
+
+    <div class="field">
       <label class="title">Name</label>
       <%= f.text_field :title %>
     </div>
