@@ -5,7 +5,7 @@
     <p class="error_message"><%= message %></p>
   <% end %>
 
-  <%= form_tag("/boards/#{params[:board_id]}/tasks/#{params[:task_id]}/comments") do %>
+  <%= form_with url: board_task_comments_path, method: :post, local: true do |f| %>
 
     <div class="field">
       <textarea name="content"><%= @comment.content %></textarea>
